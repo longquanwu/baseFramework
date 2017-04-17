@@ -1,9 +1,15 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * Author: wlq314@qq.com
+ * Date: 2017/4/17  14:05
+ */
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+'use strict';
+
+var router = require('express').Router();
+var baseRouter = require('../core/baseRouter');
+
+router.all('/', function (req, res) {
+    baseRouter.setController(req, res, 'indexController', 'index', 1000);
 });
 
 module.exports = router;
